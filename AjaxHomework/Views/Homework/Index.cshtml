@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>桃園景點</h2>
+<div class="card-columns">
+     
+</div>
+
+@section Scripts{ 
+<script src="~/js/travel.js"></script>
+<script>
+    //htmlDatas也是陣列
+    let htmlDatas = DATAS.map(data => {
+        let { Name, Toldescribe, Add, Changetime } = data  //{}
+        return (
+            `<div class="col-12 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${Name}</h5>
+                        <p class="card-text">${Toldescribe}</p>
+                        <p class="card-text"><small class="text-muted">地址：${Add}</small></p>
+                        <p class="card-text"><small class="text-muted">最後更新日期：${Changetime}</small></p>
+                    </div>
+                </div>
+            </div>`
+        )
+    })
+    $(".card-columns").html(htmlDatas)
+</script>
+
+}
